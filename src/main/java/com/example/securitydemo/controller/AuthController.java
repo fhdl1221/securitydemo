@@ -1,5 +1,7 @@
 package com.example.securitydemo.controller;
 
+import com.example.securitydemo.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -9,7 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequiredArgsConstructor
 public class AuthController {
+
+    private final UserService userService;
 
     @GetMapping("/login")
     public String login(){
